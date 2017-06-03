@@ -1,7 +1,6 @@
 SnakeWhale
 ===================
-**Whole Annotated and Labelled Exome - SnakeMake** version
-<i class="icon-cog"></i> Version 0.01
+**Whole Annotated and Labelled Exome - SnakeMake** ![version](https://img.shields.io/badge/version-0.0.1-yellow.svg?style=flat)
 
 Requirements
 -------------
