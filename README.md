@@ -1,4 +1,4 @@
-#SnakeWhale
+# SnakeWhale
 
 **Whole Annotated and Labelled Exome - SnakeMake**
 
@@ -8,7 +8,6 @@ This is the SnakeMake bioinformatic pipeline for Targeted and Exome Sequencing f
 
 
 ## Requirements
--------------
 
 * Ubuntu 16.04 Xenial LTS
 * SnakeMake (*v 3.5.5*)
