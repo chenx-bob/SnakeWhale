@@ -15,6 +15,13 @@ R2_SUFFIX="_2.fastq.gz"
 
 INPUT="input/test/"
 GENOME="input/test/ref/ref.fa"
+DBSNP="input/test/snp/dbsnp11_59570-113631.vcf"
+
+QUEUE="/home/charles/Documents/tools/Queue/current/Queue.jar"
+
+R1_SUFFIX="_1.fastq.gz"
+R2_SUFFIX="_2.fastq.gz"
+
 SAMPLES, = glob_wildcards(INPUT.join(("","{smp}_1.fastq.gz")))
 
 ################################################################################
@@ -30,7 +37,7 @@ for smp in SAMPLES:
 rule final:
     input:
         expand("output/{smp}/Quality/02-multiqc/multiqc_report.html", smp=SAMPLES),
-        expand("output/{smp}/alignment/{smp}.sorted.bam", smp=SAMPLES)
+        expand("output/{smp}/alignment/{smp}.sorted.md.recal.bam", smp=SAMPLES)
 
 ################################################################################
 ################################################################################
@@ -121,3 +128,71 @@ rule sambamba_sort:
         "{input.bam_markdup} "
         "-o {output.bam_sort} "
         "-p 2> {log}"
+
+rule sambamba_markdup:
+    input:
+        bam_raw="output/{smp}/alignment/{smp}.sorted.bam"
+    output:
+        bam_markdup="output/{smp}/alignment/{smp}.sorted.md.bam"
+    priority:
+        8
+    log:
+        "output/{smp}/logs/05-sambamba-markdup.log"
+    message:
+        """--- Mark duplicates."""
+    shell:
+        "sambamba markdup "
+        "-p {input.bam_raw} "
+        "{output.bam_markdup} "
+        "2> {log}"
+
+rule sambamba_flagstat:
+    input:
+        bam_sort="output/{smp}/alignment/{smp}.sorted.md.bam"
+    output:
+        flagstat="output/{smp}/Quality/02-Bam/flagstat.txt"
+    priority:
+        9
+    log:
+        "output/{smp}/logs/06-sambamba-flagstat.log"
+    message:
+        """--- Flagstat."""
+    shell:
+        "sambamba flagstat "
+        "{input.bam_sort} "
+        "> {output.flagstat} "
+        "2> {log}"
+
+################################################################################
+################################################################################
+
+rule GATK_baseRecalibrator:
+    input:
+        queue=QUEUE,
+        knownSite=DBSNP,
+        ref=GENOME,
+        bam_sort="output/{smp}/alignment/{smp}.sorted.md.bam"
+    output:
+        recal="output/{smp}/Quality/02-Bam/recal_data.table",
+        recal2="output/{smp}/Quality/02-Bam/post_recal_data.table",
+        plots="output/{smp}/Quality/02-Bam/plots.pdf",
+        bamrecal="output/{smp}/alignment/{smp}.sorted.md.recal.bam"
+    priority:
+        8
+    log:
+        "output/{smp}/logs/06-GATK-BQSR.log"
+    threads: 4
+    message:
+        """--- BaseRecalibrator."""
+    shell:
+        "java -jar {input.queue} "
+        "-S queueScripts/BQSR.scala "
+        "-R {input.ref} "
+        "-I {input.bam_sort} "
+        "-knownSites {input.knownSite} "
+        "-O {output.recal} "
+        "-B {output.recal2} "
+        "-P {output.plots} "
+        "-Z {output.bamrecal} "
+        "-disableJobReport "
+        "-run 2> {log}"
