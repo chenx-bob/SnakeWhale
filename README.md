@@ -26,6 +26,7 @@ Download the application [here](https://www.bioinformatics.babraham.ac.uk/projec
 ```bash
 gunzip -d fastqc_vXX.XX.XX.zip
 export PATH=$PATH:/path/to/fastqc/
+chmod 755 /path/to/fastqc/fastqc
 ```
 
 - MultiQC
