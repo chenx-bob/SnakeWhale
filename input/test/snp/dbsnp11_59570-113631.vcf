@@ -1,0 +1,172 @@
+##fileformat=VCFv4.1
+##FILTER=<ID=NC,Description="Inconsistent Genotype Submission For At Least One Sample">
+##GATKCommandLine=<ID=FilterLiftedVariants,Version=2.8-1-g2a26ec9,Date="Fri Dec 06 15:57:48 EST 2013",Epoch=1386363468704,CommandLineOptions="analysis_type=FilterLiftedVariants input_file=[] read_buffer_size=null phone_home=AWS gatk_key=null tag=NA read_filter=[] intervals=null excludeIntervals=null interval_set_rule=UNION interval_merging=ALL interval_padding=0 reference_sequence=/humgen/gsa-hpprojects/GATK/data/ucsc.hg19/ucsc.hg19.fasta nonDeterministicRandomSeed=false disableDithering=false maxRuntime=-1 maxRuntimeUnits=MINUTES downsampling_type=BY_SAMPLE downsample_to_fraction=null downsample_to_coverage=1000 baq=OFF baqGapOpenPenalty=40.0 fix_misencoded_quality_scores=false allow_potentially_misencoded_quality_scores=false useOriginalQualities=false defaultBaseQualities=-1 performanceLog=null BQSR=null quantize_quals=0 disable_indel_quals=false emit_original_quals=false preserve_qscores_less_than=6 globalQScorePrior=-1.0 allow_bqsr_on_reduced_bams_despite_repeated_warnings=false validation_strictness=SILENT remove_program_records=false keep_program_records=false sample_rename_mapping_file=null unsafe=LENIENT_VCF_PROCESSING disable_auto_index_creation_and_locking_when_reading_rods=false num_threads=1 num_cpu_threads_per_data_thread=1 num_io_threads=0 monitorThreadEfficiency=false num_bam_file_handles=null read_group_black_list=null pedigree=[] pedigreeString=[] pedigreeValidationType=STRICT allow_intervals_with_unindexed_bam=false generateShadowBCF=false variant_index_type=DYNAMIC_SEEK variant_index_parameter=-1 logging_level=INFO log_to_file=null help=false version=false variant=(RodBinding name=variant source=/humgen/gsa-scr1/ebanks/Sting_unstable/.queue/tmp/0.240584444328309.sorted.vcf) out=org.broadinstitute.sting.gatk.io.stubs.VariantContextWriterStub no_cmdline_in_header=org.broadinstitute.sting.gatk.io.stubs.VariantContextWriterStub sites_only=org.broadinstitute.sting.gatk.io.stubs.VariantContextWriterStub bcf=org.broadinstitute.sting.gatk.io.stubs.VariantContextWriterStub filter_reads_with_N_cigar=false filter_mismatching_base_and_quals=false filter_bases_not_stored=false">
+##INFO=<ID=ASP,Number=0,Type=Flag,Description="Is Assembly specific. This is set if the variant only maps to one assembly">
+##INFO=<ID=ASS,Number=0,Type=Flag,Description="In acceptor splice site FxnCode = 73">
+##INFO=<ID=CAF,Number=.,Type=String,Description="An ordered, comma delimited list of allele frequencies based on 1000Genomes, starting with the reference allele followed by alternate alleles as ordered in the ALT column. Where a 1000Genomes alternate allele is not in the dbSNPs alternate allele set, the allele is added to the ALT column.  The minor allele is the second largest value in the list, and was previuosly reported in VCF as the GMAF.  This is the GMAF reported on the RefSNP and EntrezSNP pages and VariationReporter">
+##INFO=<ID=CDA,Number=0,Type=Flag,Description="Variation is interrogated in a clinical diagnostic assay">
+##INFO=<ID=CFL,Number=0,Type=Flag,Description="Has Assembly conflict. This is for weight 1 and 2 variant that maps to different chromosomes on different assemblies.">
+##INFO=<ID=CLNACC,Number=.,Type=String,Description="Variant Accession and Versions">
+##INFO=<ID=CLNALLE,Number=.,Type=Integer,Description="Variant alleles from REF or ALT columns.  0 is REF, 1 is the first ALT allele, etc.  This is used to match alleles with other corresponding clinical (CLN) INFO tags.  A value of -1 indicates that no allele was found to match a corresponding HGVS allele name.">
+##INFO=<ID=CLNDBN,Number=.,Type=String,Description="Variant disease name">
+##INFO=<ID=CLNDSDB,Number=.,Type=String,Description="Variant disease database name">
+##INFO=<ID=CLNDSDBID,Number=.,Type=String,Description="Variant disease database ID">
+##INFO=<ID=CLNHGVS,Number=.,Type=String,Description="Variant names from HGVS.    The order of these variants corresponds to the order of the info in the other clinical  INFO tags.">
+##INFO=<ID=CLNORIGIN,Number=.,Type=String,Description="Allele Origin. One or more of the following values may be added: 0 - unknown; 1 - germline; 2 - somatic; 4 - inherited; 8 - paternal; 16 - maternal; 32 - de-novo; 64 - biparental; 128 - uniparental; 256 - not-tested; 512 - tested-inconclusive; 1073741824 - other">
+##INFO=<ID=CLNSIG,Number=.,Type=String,Description="Variant Clinical Significance, 0 - unknown, 1 - untested, 2 - non-pathogenic, 3 - probable-non-pathogenic, 4 - probable-pathogenic, 5 - pathogenic, 6 - drug-response, 7 - histocompatibility, 255 - other">
+##INFO=<ID=CLNSRC,Number=.,Type=String,Description="Variant Clinical Chanels">
+##INFO=<ID=CLNSRCID,Number=.,Type=String,Description="Variant Clinical Channel IDs">
+##INFO=<ID=COMMON,Number=1,Type=Integer,Description="RS is a common SNP.  A common SNP is one that has at least one 1000Genomes population with a minor allele of frequency >= 1% and for which 2 or more founders contribute to that minor allele frequency.">
+##INFO=<ID=DSS,Number=0,Type=Flag,Description="In donor splice-site FxnCode = 75">
+##INFO=<ID=G5,Number=0,Type=Flag,Description=">5% minor allele frequency in 1+ populations">
+##INFO=<ID=G5A,Number=0,Type=Flag,Description=">5% minor allele frequency in each and all populations">
+##INFO=<ID=GENEINFO,Number=1,Type=String,Description="Pairs each of gene symbol:gene id.  The gene symbol and id are delimited by a colon (:) and each pair is delimited by a vertical bar (|)">
+##INFO=<ID=GNO,Number=0,Type=Flag,Description="Genotypes available. The variant has individual genotype (in SubInd table).">
+##INFO=<ID=HD,Number=0,Type=Flag,Description="Marker is on high density genotyping kit (50K density or greater).  The variant may have phenotype associations present in dbGaP.">
+##INFO=<ID=INT,Number=0,Type=Flag,Description="In Intron FxnCode = 6">
+##INFO=<ID=KGPROD,Number=0,Type=Flag,Description="Has 1000 Genome submission">
+##INFO=<ID=KGPhase1,Number=0,Type=Flag,Description="1000 Genome phase 1 (incl. June Interim phase 1)">
+##INFO=<ID=KGPilot123,Number=0,Type=Flag,Description="1000 Genome discovery all pilots 2010(1,2,3)">
+##INFO=<ID=KGValidated,Number=0,Type=Flag,Description="1000 Genome validated">
+##INFO=<ID=LSD,Number=0,Type=Flag,Description="Submitted from a locus-specific database">
+##INFO=<ID=MTP,Number=0,Type=Flag,Description="Microattribution/third-party annotation(TPA:GWAS,PAGE)">
+##INFO=<ID=MUT,Number=0,Type=Flag,Description="Is mutation (journal citation, explicit fact): a low frequency variation that is cited in journal and other reputable sources">
+##INFO=<ID=NOC,Number=0,Type=Flag,Description="Contig allele not present in variant allele list. The reference sequence allele at the mapped position is not present in the variant allele list, adjusted for orientation.">
+##INFO=<ID=NOV,Number=0,Type=Flag,Description="Rs cluster has non-overlapping allele sets. True when rs set has more than 2 alleles from different submissions and these sets share no alleles in common.">
+##INFO=<ID=NSF,Number=0,Type=Flag,Description="Has non-synonymous frameshift A coding region variation where one allele in the set changes all downstream amino acids. FxnClass = 44">
+##INFO=<ID=NSM,Number=0,Type=Flag,Description="Has non-synonymous missense A coding region variation where one allele in the set changes protein peptide. FxnClass = 42">
+##INFO=<ID=NSN,Number=0,Type=Flag,Description="Has non-synonymous nonsense A coding region variation where one allele in the set changes to STOP codon (TER). FxnClass = 41">
+##INFO=<ID=OM,Number=0,Type=Flag,Description="Has OMIM/OMIA">
+##INFO=<ID=OTH,Number=0,Type=Flag,Description="Has other variant with exactly the same set of mapped positions on NCBI refernce assembly.">
+##INFO=<ID=OTHERKG,Number=0,Type=Flag,Description="non-1000 Genome submission">
+##INFO=<ID=PH3,Number=0,Type=Flag,Description="HAP_MAP Phase 3 genotyped: filtered, non-redundant">
+##INFO=<ID=PM,Number=0,Type=Flag,Description="Variant is Precious(Clinical,Pubmed Cited)">
+##INFO=<ID=PMC,Number=0,Type=Flag,Description="Links exist to PubMed Central article">
+##INFO=<ID=R3,Number=0,Type=Flag,Description="In 3' gene region FxnCode = 13">
+##INFO=<ID=R5,Number=0,Type=Flag,Description="In 5' gene region FxnCode = 15">
+##INFO=<ID=REF,Number=0,Type=Flag,Description="Has reference A coding region variation where one allele in the set is identical to the reference sequence. FxnCode = 8">
+##INFO=<ID=RS,Number=1,Type=Integer,Description="dbSNP ID (i.e. rs number)">
+##INFO=<ID=RSPOS,Number=1,Type=Integer,Description="Chr position reported in dbSNP">
+##INFO=<ID=RV,Number=0,Type=Flag,Description="RS orientation is reversed">
+##INFO=<ID=S3D,Number=0,Type=Flag,Description="Has 3D structure - SNP3D table">
+##INFO=<ID=SAO,Number=1,Type=Integer,Description="Variant Allele Origin: 0 - unspecified, 1 - Germline, 2 - Somatic, 3 - Both">
+##INFO=<ID=SLO,Number=0,Type=Flag,Description="Has SubmitterLinkOut - From SNP->SubSNP->Batch.link_out">
+##INFO=<ID=SSR,Number=1,Type=Integer,Description="Variant Suspect Reason Codes (may be more than one value added together) 0 - unspecified, 1 - Paralog, 2 - byEST, 4 - oldAlign, 8 - Para_EST, 16 - 1kg_failed, 1024 - other">
+##INFO=<ID=SYN,Number=0,Type=Flag,Description="Has synonymous A coding region variation where one allele in the set does not change the encoded amino acid. FxnCode = 3">
+##INFO=<ID=TPA,Number=0,Type=Flag,Description="Provisional Third Party Annotation(TPA) (currently rs from PHARMGKB who will give phenotype data)">
+##INFO=<ID=U3,Number=0,Type=Flag,Description="In 3' UTR Location is in an untranslated region (UTR). FxnCode = 53">
+##INFO=<ID=U5,Number=0,Type=Flag,Description="In 5' UTR Location is in an untranslated region (UTR). FxnCode = 55">
+##INFO=<ID=VC,Number=1,Type=String,Description="Variation Class">
+##INFO=<ID=VLD,Number=0,Type=Flag,Description="Is Validated.  This bit is set if the variant has 2+ minor allele count based on frequency or genotype data.">
+##INFO=<ID=VP,Number=1,Type=String,Description="Variation Property.  Documentation is at ftp://ftp.ncbi.nlm.nih.gov/snp/specs/dbSNP_BitField_latest.pdf">
+##INFO=<ID=WGT,Number=1,Type=Integer,Description="Weight, 00 - unmapped, 1 - weight 1, 2 - weight 2, 3 - weight 3 or more">
+##INFO=<ID=WTD,Number=0,Type=Flag,Description="Is Withdrawn by submitter If one member ss is withdrawn by submitter, then this bit is set.  If all member ss' are withdrawn, then the rs is deleted to SNPHistory">
+##INFO=<ID=dbSNPBuildID,Number=1,Type=Integer,Description="First dbSNP Build for RS">
+##contig=<ID=chr1,length=249250621>
+##contig=<ID=chr2,length=243199373>
+##contig=<ID=chr3,length=198022430>
+##contig=<ID=chr4,length=191154276>
+##contig=<ID=chr5,length=180915260>
+##contig=<ID=chr6,length=171115067>
+##contig=<ID=chr7,length=159138663>
+##contig=<ID=chr8,length=146364022>
+##contig=<ID=chr9,length=141213431>
+##contig=<ID=chr10,length=135534747>
+##contig=<ID=chr11,length=135006516>
+##contig=<ID=chr12,length=133851895>
+##contig=<ID=chr13,length=115169878>
+##contig=<ID=chr14,length=107349540>
+##contig=<ID=chr15,length=102531392>
+##contig=<ID=chr16,length=90354753>
+##contig=<ID=chr17,length=81195210>
+##contig=<ID=chr18,length=78077248>
+##contig=<ID=chr19,length=59128983>
+##contig=<ID=chr20,length=63025520>
+##contig=<ID=chr21,length=48129895>
+##contig=<ID=chr22,length=51304566>
+##contig=<ID=chrX,length=155270560>
+##contig=<ID=chrY,length=59373566>
+##contig=<ID=chrM,length=16571>
+##dbSNP_BUILD_ID=138
+##fileDate=20130806
+##phasing=partial
+##reference=file:///humgen/gsa-hpprojects/GATK/data/ucsc.hg19/ucsc.hg19.fasta
+##source=dbSNP
+##variationPropertyDocumentationUrl=ftp://ftp.ncbi.nlm.nih.gov/snp/specs/dbSNP_BitField_latest.pdf	
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
+chr11	61248	rs367559610	G	A	.	.	ASP;OTHERKG;RS=367559610;RSPOS=61248;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	61251	rs370183475	A	G	.	.	ASP;OTHERKG;RS=370183475;RSPOS=61251;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	61367	rs374502399	A	G	.	.	ASP;OTHERKG;RS=374502399;RSPOS=61367;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	61395	rs371609562	CTT	C	.	.	ASP;OTHERKG;RS=371609562;RSPOS=61396;SAO=0;SSR=0;VC=DIV;VP=0x050000000005000002000200;WGT=1;dbSNPBuildID=138
+chr11	61523	rs373024602	G	A	.	.	ASP;OTHERKG;RS=373024602;RSPOS=61523;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	61554	rs371166893	A	C	.	.	ASP;OTHERKG;RS=371166893;RSPOS=61554;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	61727	rs367981852	A	G	.	.	ASP;OTHERKG;RS=367981852;RSPOS=61727;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	70438	rs370765716	A	C	.	.	CFL;OTHERKG;RS=370765716;RSPOS=70438;SAO=0;SSR=0;VC=SNV;VP=0x050000000009000002000100;WGT=1;dbSNPBuildID=138
+chr11	70500	rs367904720	A	G	.	.	CFL;OTHERKG;RS=367904720;RSPOS=70500;SAO=0;SSR=0;VC=SNV;VP=0x050000000009000002000100;WGT=1;dbSNPBuildID=138
+chr11	70526	rs376498653	C	T	.	.	CFL;OTHERKG;RS=376498653;RSPOS=70526;SAO=0;SSR=0;VC=SNV;VP=0x050000000009000002000100;WGT=1;dbSNPBuildID=138
+chr11	70566	rs372115606	G	A	.	.	CFL;OTHERKG;RS=372115606;RSPOS=70566;SAO=0;SSR=0;VC=SNV;VP=0x050000000009000002000100;WGT=1;dbSNPBuildID=138
+chr11	70580	rs368752745	A	G	.	.	CFL;OTHERKG;RS=368752745;RSPOS=70580;SAO=0;SSR=0;VC=SNV;VP=0x050000000009000002000100;WGT=1;dbSNPBuildID=138
+chr11	70609	rs370098247	G	A	.	.	CFL;OTHERKG;RS=370098247;RSPOS=70609;SAO=0;SSR=0;VC=SNV;VP=0x050000000009000002000100;WGT=1;dbSNPBuildID=138
+chr11	70624	rs28602246	A	G	.	.	CFL;OTHERKG;RS=28602246;RSPOS=70624;SAO=0;SSR=0;VC=SNV;VP=0x050000000009000002000100;WGT=1;dbSNPBuildID=125
+chr11	70643	rs377362560	A	G	.	.	CFL;OTHERKG;RS=377362560;RSPOS=70643;SAO=0;SSR=0;VC=SNV;VP=0x050000000009000002000100;WGT=1;dbSNPBuildID=138
+chr11	70686	rs376070583	G	A	.	.	CFL;OTHERKG;RS=376070583;RSPOS=70686;SAO=0;SSR=0;VC=SNV;VP=0x050000000009000002000100;WGT=1;dbSNPBuildID=138
+chr11	70695	rs374527035	G	C	.	.	CFL;OTHERKG;RS=374527035;RSPOS=70695;SAO=0;SSR=0;VC=SNV;VP=0x050000000009000002000100;WGT=1;dbSNPBuildID=138
+chr11	70701	rs55859758	AG	A	.	.	CFL;OTHERKG;RS=55859758;RSPOS=70706;SAO=0;SSR=0;VC=DIV;VP=0x050000000009000002000200;WGT=1;dbSNPBuildID=129
+chr11	70720	rs374188971	G	A	.	.	CFL;OTHERKG;RS=374188971;RSPOS=70720;SAO=0;SSR=0;VC=SNV;VP=0x050000000009000002000100;WGT=1;dbSNPBuildID=138
+chr11	70734	rs372499065	A	G	.	.	CFL;OTHERKG;RS=372499065;RSPOS=70734;SAO=0;SSR=0;VC=SNV;VP=0x050000000009000002000100;WGT=1;dbSNPBuildID=138
+chr11	70749	rs2461544	T	C	.	.	OTHERKG;RS=2461544;RSPOS=70749;SAO=0;SSR=0;VC=SNV;VP=0x050000000001000002000100;WGT=1;dbSNPBuildID=100
+chr11	70797	rs2461545	A	G	.	.	OTHERKG;RS=2461545;RSPOS=70797;SAO=0;SSR=0;VC=SNV;VP=0x050000000001000002000100;WGT=1;dbSNPBuildID=100
+chr11	70811	rs2461546	A	G	.	.	OTHERKG;RS=2461546;RSPOS=70811;SAO=0;SSR=0;VC=SNV;VP=0x050000000001000002000100;WGT=1;dbSNPBuildID=100
+chr11	70855	rs77848728	G	A	.	.	CAF=[0.3765,0.6235];CFL;COMMON=1;GNO;KGPROD;KGPhase1;OTHERKG;RS=77848728;RSPOS=70855;SAO=0;SSR=0;VC=SNV;VP=0x050000000009100116000100;WGT=1;dbSNPBuildID=131
+chr11	70864	rs2461547	A	G	.	.	OTHERKG;RS=2461547;RSPOS=70864;SAO=0;SSR=0;VC=SNV;VP=0x050000000001000002000100;WGT=1;dbSNPBuildID=100
+chr11	70898	rs369485805	G	A	.	.	CFL;OTHERKG;RS=369485805;RSPOS=70898;SAO=0;SSR=0;VC=SNV;VP=0x050000000009000002000100;WGT=1;dbSNPBuildID=138
+chr11	70932	rs375963971	C	G	.	.	CFL;OTHERKG;RS=375963971;RSPOS=70932;SAO=0;SSR=0;VC=SNV;VP=0x050000000009000002000100;WGT=1;dbSNPBuildID=138
+chr11	70964	rs374628608	CA	C	.	.	CFL;OTHERKG;RS=374628608;RSPOS=70965;SAO=0;SSR=0;VC=DIV;VP=0x050000000009000002000200;WGT=1;dbSNPBuildID=138
+chr11	70972	rs2686858	T	C	.	.	OTHERKG;RS=2686858;RSPOS=70972;SAO=0;SSR=0;VC=SNV;VP=0x050000000001000002000100;WGT=1;dbSNPBuildID=100
+chr11	70984	rs377027347	G	A	.	.	CFL;OTHERKG;RS=377027347;RSPOS=70984;SAO=0;SSR=0;VC=SNV;VP=0x050000000009000002000100;WGT=1;dbSNPBuildID=138
+chr11	71000	rs375466524	A	G	.	.	CFL;OTHERKG;RS=375466524;RSPOS=71000;SAO=0;SSR=0;VC=SNV;VP=0x050000000009000002000100;WGT=1;dbSNPBuildID=138
+chr11	72980	rs201960559	A	AT	.	.	ASP;OTHERKG;RS=201960559;RSPOS=72980;SAO=0;SSR=0;VC=DIV;VP=0x050000000005000002000200;WGT=1;dbSNPBuildID=137
+chr11	72983	rs76023912	T	TTA	.	.	OTHERKG;RS=76023912;RSPOS=72983;SAO=0;SSR=0;VC=DIV;VP=0x050000000001000002000200;WGT=1;dbSNPBuildID=131
+chr11	72985	rs201760243	A	T	.	.	ASP;OTHERKG;RS=201760243;RSPOS=72985;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=137
+chr11	76995	rs375665584	G	A	.	.	ASP;OTHERKG;RS=375665584;RSPOS=76995;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	87016	rs201542509	T	A,G	.	.	OTHERKG;RS=201542509;RSPOS=87016;SAO=0;SSR=0;VC=SNV;VLD;VP=0x050000000001040002000100;WGT=1;dbSNPBuildID=137
+chr11	87018	rs201975572	G	A	.	.	G5;G5A;OTHERKG;RS=201975572;RSPOS=87018;SAO=0;SSR=0;VC=SNV;VLD;VP=0x050000000001070002000100;WGT=1;dbSNPBuildID=137
+chr11	87150	rs200634578	A	T	.	.	OTHERKG;RS=200634578;RSPOS=87150;SAO=0;SSR=0;VC=SNV;VLD;VP=0x050000000001040002000100;WGT=1;dbSNPBuildID=137
+chr11	87199	rs201530474	C	A	.	.	OTHERKG;RS=201530474;RSPOS=87199;SAO=0;SSR=0;VC=SNV;VLD;VP=0x050000000001040002000100;WGT=1;dbSNPBuildID=137
+chr11	87396	rs199683576	G	A	.	.	OTHERKG;RS=199683576;RSPOS=87396;SAO=0;SSR=0;VC=SNV;VLD;VP=0x050000000001040002000100;WGT=1;dbSNPBuildID=137
+chr11	91275	rs200329693	A	G	.	.	ASP;OTHERKG;RS=200329693;RSPOS=91275;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=137
+chr11	101153	rs372153001	A	G	.	.	ASP;OTHERKG;RS=372153001;RSPOS=101153;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	101227	rs369985275	T	G	.	.	ASP;OTHERKG;RS=369985275;RSPOS=101227;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	101236	rs375188827	C	A	.	.	ASP;OTHERKG;RS=375188827;RSPOS=101236;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	101262	rs376592106	C	A	.	.	ASP;OTHERKG;RS=376592106;RSPOS=101262;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	101315	rs372710005	A	G	.	.	ASP;OTHERKG;RS=372710005;RSPOS=101315;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	101326	rs375517707	G	C	.	.	ASP;OTHERKG;RS=375517707;RSPOS=101326;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	101364	rs370887697	G	C	.	.	ASP;OTHERKG;RS=370887697;RSPOS=101364;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	101675	rs371792164	G	A	.	.	ASP;OTHERKG;RS=371792164;RSPOS=101675;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	101722	rs368516093	G	A	.	.	ASP;OTHERKG;RS=368516093;RSPOS=101722;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	101754	rs369715351	A	G	.	.	ASP;OTHERKG;RS=369715351;RSPOS=101754;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	101791	rs376110361	G	A	.	.	ASP;OTHERKG;RS=376110361;RSPOS=101791;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	101813	rs373030273	T	C	.	.	ASP;OTHERKG;RS=373030273;RSPOS=101813;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	101825	rs371171003	C	A	.	.	ASP;OTHERKG;RS=371171003;RSPOS=101825;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	101844	rs199664727	A	C	.	.	ASP;OTHERKG;RS=199664727;RSPOS=101844;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=137
+chr11	101860	rs374414770	A	G	.	.	ASP;OTHERKG;RS=374414770;RSPOS=101860;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	102536	rs201065665	G	A	.	.	ASP;OTHERKG;RS=201065665;RSPOS=102536;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=137
+chr11	102547	rs202224032	G	C	.	.	ASP;OTHERKG;RS=202224032;RSPOS=102547;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=137
+chr11	102905	rs370363256	C	G	.	.	ASP;OTHERKG;RS=370363256;RSPOS=102905;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	102920	rs200734300	G	A	.	.	ASP;OTHERKG;RS=200734300;RSPOS=102920;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=137
+chr11	103133	rs200559620	C	T	.	.	ASP;OTHERKG;RS=200559620;RSPOS=103133;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=137
+chr11	103253	rs186962863	T	C	.	.	ASP;CAF=[0.7433,0.2567];COMMON=1;KGPROD;KGPhase1;OTHERKG;RS=186962863;RSPOS=103253;SAO=0;SSR=0;VC=SNV;VP=0x050000000005100016000100;WGT=1;dbSNPBuildID=135
+chr11	103493	rs368826046	G	A	.	.	ASP;OTHERKG;RS=368826046;RSPOS=103493;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	104469	rs374966059	G	A	.	.	ASP;OTHERKG;RS=374966059;RSPOS=104469;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	106835	rs372124272	A	G	.	.	ASP;OTHERKG;RS=372124272;RSPOS=106835;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	107044	rs368759286	C	T	.	.	ASP;OTHERKG;RS=368759286;RSPOS=107044;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	107082	rs369910189	A	G	.	.	ASP;OTHERKG;RS=369910189;RSPOS=107082;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	107906	rs376779230	C	T	.	.	ASP;OTHERKG;RS=376779230;RSPOS=107906;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	109708	rs373954339	G	C	.	.	ASP;OTHERKG;RS=373954339;RSPOS=109708;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	109722	rs372508873	T	C	.	.	ASP;OTHERKG;RS=372508873;RSPOS=109722;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	109959	rs371460570	T	C	.	.	ASP;OTHERKG;RS=371460570;RSPOS=109959;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	110826	rs369993856	A	G	.	.	ASP;OTHERKG;RS=369993856;RSPOS=110826;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	110992	rs201250799	AACTT	A	.	.	ASP;CAF=[0.9174,0.08264];COMMON=1;KGPROD;KGPhase1;KGPilot123;OTHERKG;RS=201250799;RSPOS=110993;SAO=0;SSR=0;VC=DIV;VP=0x05000000000510001e000200;WGT=1;dbSNPBuildID=137
+chr11	110995	rs367679709	T	A	.	.	ASP;OTHERKG;RS=367679709;RSPOS=110995;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	110996	rs370509952	T	A	.	.	ASP;OTHERKG;RS=370509952;RSPOS=110996;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=138
+chr11	111132	rs201446797	T	C	.	.	ASP;OTHERKG;RS=201446797;RSPOS=111132;SAO=0;SSR=0;VC=SNV;VP=0x050000000005000002000100;WGT=1;dbSNPBuildID=137
