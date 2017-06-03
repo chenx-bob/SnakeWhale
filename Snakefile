@@ -18,6 +18,7 @@ GENOME="input/test/ref/ref.fa"
 DBSNP="input/test/snp/dbsnp11_59570-113631.vcf"
 
 QUEUE="/home/charles/Documents/tools/Queue/current/Queue.jar"
+GATK="/home/charles/Documents/tools/GATK/current/GenomeAnalysisTK.jar"
 
 R1_SUFFIX="_1.fastq.gz"
 R2_SUFFIX="_2.fastq.gz"
@@ -37,7 +38,7 @@ for smp in SAMPLES:
 rule final:
     input:
         expand("output/{smp}/Quality/02-multiqc/multiqc_report.html", smp=SAMPLES),
-        expand("output/{smp}/alignment/{smp}.sorted.md.recal.bam", smp=SAMPLES)
+        expand("output/{smp}/Quality/02_DoC_{smp}", smp=SAMPLES)
 
 ################################################################################
 ################################################################################
@@ -62,6 +63,9 @@ rule fastqc:
         "{input.fwd} "
         "{input.rev} "
         "2> {log}"
+
+################################################################################
+################################################################################
 
 rule multiQC:
     input:
@@ -112,6 +116,9 @@ rule bwa_mem:
         "/dev/stdin "
         "2> {log}"
 
+################################################################################
+################################################################################
+
 rule sambamba_sort:
     input:
         bam_markdup="output/{smp}/alignment/{smp}.raw.bam"
@@ -129,6 +136,9 @@ rule sambamba_sort:
         "-o {output.bam_sort} "
         "-p 2> {log}"
 
+################################################################################
+################################################################################
+
 rule sambamba_markdup:
     input:
         bam_raw="output/{smp}/alignment/{smp}.sorted.bam"
@@ -145,6 +155,9 @@ rule sambamba_markdup:
         "-p {input.bam_raw} "
         "{output.bam_markdup} "
         "2> {log}"
+
+################################################################################
+################################################################################
 
 rule sambamba_flagstat:
     input:
@@ -180,7 +193,7 @@ rule GATK_baseRecalibrator:
     priority:
         8
     log:
-        "output/{smp}/logs/06-GATK-BQSR.log"
+        "output/{smp}/logs/07-GATK-BQSR.log"
     threads: 4
     message:
         """--- BaseRecalibrator."""
@@ -196,3 +209,27 @@ rule GATK_baseRecalibrator:
         "-Z {output.bamrecal} "
         "-disableJobReport "
         "-run 2> {log}"
+
+################################################################################
+################################################################################
+
+rule GATK_DoC:
+    input:
+        gatk=GATK,
+        genome=GENOME,
+        bam_sort="output/{smp}/alignment/{smp}.sorted.md.recal.bam"
+    output:
+        intervals="output/{smp}/Quality/02_DoC_{smp}"
+    priority:
+        8
+    log:
+        "output/{smp}/logs/08-GATK-DoC.log"
+    threads: 4
+    message:
+        """--- DepthOfCoverage."""
+    shell:
+        "java -jar {input.gatk} -T  DepthOfCoverage "
+        "-R {input.genome} "
+        "-I {input.bam_sort} "
+        "-o {output.intervals} "
+        "2> {log}"
