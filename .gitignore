@@ -1,0 +1,5 @@
+.snakemake
+.git
+output
+input/*
+!input/test/
