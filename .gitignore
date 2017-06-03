@@ -1,5 +1,6 @@
 .snakemake
 .git
+.queue
 output
 input/*
 !input/test/
