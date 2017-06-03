@@ -1,6 +1,7 @@
 SnakeWhale
 ===================
-**Whole Annotated and Labelled Exome - SnakeMake** ![version](https://img.shields.io/badge/version-0.0.1-yellow.svg?style=flat)
+**Whole Annotated and Labelled Exome - SnakeMake**
+![version](https://img.shields.io/badge/version-0.0.1-yellow.svg?style=flat)
 
 Requirements
 -------------
@@ -12,16 +13,23 @@ Requirements
 
 Install Requirements
 -------------
+
 - SnakeMake 3.5.5
+
 ```bash
 sudo apt-get install snakemake
 ```
+
 - FastQC
-Download the application [here](https://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc)
+Download the application [here](https://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc) and export it to the PATH.
+
 ```bash
-gunzip -d fastqc_v0.11.5.zip
+gunzip -d fastqc_vXX.XX.XX.zip
+export PATH=$PATH:/path/to/fastqc/
 ```
+
 - MultiQC
+
 ```bash
 pip install multiqc
 ```
